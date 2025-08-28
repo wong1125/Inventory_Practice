@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class Character : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] string id = "Chad";
+    [SerializeField] int gold = 20000;
+    [SerializeField] int level = 10;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [SerializeField] int baseAtk = 35;
+    [SerializeField] int baseDef = 40;
+    [SerializeField] int baseHealth = 100;
+    [SerializeField] int baseCrit = 25;
 }
