@@ -10,10 +10,4 @@ public class UIInventory : MonoBehaviour
     {
         backButton.onClick.AddListener(UIManager.Instance.MainMenu.OpenMainMenu);
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

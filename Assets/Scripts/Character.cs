@@ -2,14 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Character : MonoBehaviour
+public class Character
 {
-    [SerializeField] string id = "Chad";
-    [SerializeField] int gold = 20000;
-    [SerializeField] int level = 10;
+    public string id { get; private set; }
+    public int gold { get; private set; }
+    public int level { get; private set; }
+    public int baseAtk { get; private set; } 
+    public int baseDef { get; private set; } 
+    public int baseHealth { get; private set; }
+    public int baseCrit { get; private set; }
 
-    [SerializeField] int baseAtk = 35;
-    [SerializeField] int baseDef = 40;
-    [SerializeField] int baseHealth = 100;
-    [SerializeField] int baseCrit = 25;
+    public Character()
+    {
+        id = "Chad";
+        gold = 20000;
+        level = 10;
+        baseAtk = 35;
+        baseDef = 40;
+        baseHealth = 100;
+        baseCrit = 25;
+    }
 }

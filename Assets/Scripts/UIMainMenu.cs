@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,6 +9,10 @@ public class UIMainMenu : MonoBehaviour
     [SerializeField] GameObject uiSelector;
     [SerializeField] Button statusButton;
     [SerializeField] Button inventoryButton;
+
+    [SerializeField] TextMeshProUGUI idText;
+    [SerializeField] TextMeshProUGUI levelText;
+    [SerializeField] TextMeshProUGUI goldText;
 
 
     private void Start()
@@ -33,5 +38,12 @@ public class UIMainMenu : MonoBehaviour
     {
         uiSelector.SetActive(false);
         UIManager.Instance.Inventory.gameObject.SetActive(true);
+    }
+
+    public void SetMainMenuData(string id, int level, int gold)
+    {
+        idText.text = id;
+        levelText.text = $"{level}";
+        goldText.text = $"{gold}";
     }
 }
