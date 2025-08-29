@@ -11,7 +11,7 @@ public class UIInventory : MonoBehaviour
     [SerializeField] UISlot uiSlotPrefab;
 
     [SerializeField] Transform slotParent;
-    [SerializeField] int initialSlotSize = 9;
+    [SerializeField] int initialSlotSize;
     private List<UISlot> slots = new List<UISlot>();
 
 
@@ -32,6 +32,7 @@ public class UIInventory : MonoBehaviour
 
     public void SetInventoryData(List<Item> items)
     {
+        //아이템 수가 기본 인벤토리보다 많으면, 인벤토리 확장
         if (slots.Count < items.Count)
         {
             int newSlotNum = items.Count - slots.Count;
@@ -44,7 +45,7 @@ public class UIInventory : MonoBehaviour
         
         for (int i = 0; i < items.Count; i++)
         {
-            slots[i].SetItem(items[i]);
+            slots[i].RefreshUI(items[i]);
         }
     }
 }

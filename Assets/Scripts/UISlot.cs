@@ -8,18 +8,41 @@ public class UISlot : MonoBehaviour
     private bool isEquipped;
     [SerializeField] Image itemImage;
     [SerializeField] Button equipToggle;
-    [SerializeField] Image equipIndicator;
+    [SerializeField] GameObject equipIndicator;
     public Item Item {  get; private set; }
-    
-    public void SetItem(Item itemAdded)
+
+    private Character player;
+
+    private void Start()
     {
-        Item = itemAdded;
-        RefreshAI();
+        player = GameManager.Instance.Player;
+        equipIndicator.SetActive(false);
+        equipToggle.onClick.AddListener(SetItem);
     }
 
-    void RefreshAI()
+    //UI에 아이템 정보 넣기
+    public void RefreshUI(Item itemAdded)
     {
+        Item = itemAdded;
         itemImage.sprite = Resources.Load<Sprite>(Item.imageKey);
+    }
+
+    //아이템 장착 or 빼기
+    void SetItem()
+    {
+        if (!isEquipped)
+        {
+            equipIndicator.SetActive(true);
+            player.Equip(Item);
+            UIManager.Instance.Status.SetSatusData(player.Attack, player.Defend, player.Health, player.Critical);
+        }
+        else
+        {
+            equipIndicator.SetActive(false);
+            GameManager.Instance.Player.UnEquip(Item);
+            UIManager.Instance.Status.SetSatusData(player.Attack, player.Defend, player.Health, player.Critical);
+        }
+        isEquipped = !isEquipped;
     }
 
 }

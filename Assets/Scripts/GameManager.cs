@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     }
 
     private Character player;
+    public Character Player { get { return player; } }
 
     private void Awake()
     {
@@ -34,11 +35,11 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-
         SetData();
     }
 
-    void SetData()
+    //생성자로 데이터 넣어주기
+    public void SetData()
     {
         List<Item> inventory = new List<Item>() 
         { 
@@ -47,7 +48,7 @@ public class GameManager : MonoBehaviour
         };
         player = new Character("Chad", 20000, 10, 35, 40, 100, 25, inventory);
         UIManager.Instance.MainMenu.SetMainMenuData(player.Id, player.Level, player.Gold);
-        UIManager.Instance.Status.SetSatusData(player.BaseAtk, player.BaseDef, player.BaseHealth, player.BaseCrit);
+        UIManager.Instance.Status.SetSatusData(player.Attack, player.Defend, player.Health, player.Critical);
         UIManager.Instance.Inventory.SetInventoryData(inventory);
     }
 }
