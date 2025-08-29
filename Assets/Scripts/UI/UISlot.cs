@@ -30,6 +30,11 @@ public class UISlot : MonoBehaviour
     //æ∆¿Ã≈€ ¿Â¬¯ or ª©±‚
     void SetItem()
     {
+        if(Item == null)
+        {
+            return;
+        }
+        
         if (!isEquipped)
         {
             equipIndicator.SetActive(true);
