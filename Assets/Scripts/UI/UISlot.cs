@@ -25,15 +25,14 @@ public class UISlot : MonoBehaviour
     {
         Item = itemAdded;
         itemImage.sprite = Resources.Load<Sprite>(Item.imageKey);
+        itemImage.color = new Color(1, 1, 1, 1);
     }
 
     //æ∆¿Ã≈€ ¿Â¬¯ or ª©±‚
     void SetItem()
     {
         if(Item == null)
-        {
             return;
-        }
         
         if (!isEquipped)
         {
