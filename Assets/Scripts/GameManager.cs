@@ -42,8 +42,8 @@ public class GameManager : MonoBehaviour
     {
         List<Item> inventory = new List<Item>() 
         { 
-            new Item(atk: 10),
-            new Item(def: -5, crit: 10)
+            new Item("Sword", atk: 10),
+            new Item("Shield", def: 10, crit: -5)
         };
         player = new Character("Chad", 20000, 10, 35, 40, 100, 25, inventory);
         UIManager.Instance.MainMenu.SetMainMenuData(player.Id, player.Level, player.Gold);

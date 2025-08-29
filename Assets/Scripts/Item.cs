@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class Item 
 {
-    int atkChangeValue;
-    int defChangeValue;
-    int healthChangeValue;
-    int critChangeValue;
+    public int atkChangeValue { get; private set; }
+    public int defChangeValue { get; private set; }
+    public int healthChangeValue { get; private set; }
+    public int critChangeValue { get; private set; }
+    public string imageKey { get; private set; }
 
-
-    public Item(int atk = 0, int def = 0, int health = 0, int crit = 0) 
+    public Item(string image, int atk = 0, int def = 0, int health = 0, int crit = 0) 
     {
+        imageKey = image;
         atkChangeValue = atk;
         defChangeValue = def;
         healthChangeValue = health;
