@@ -40,8 +40,14 @@ public class GameManager : MonoBehaviour
 
     void SetData()
     {
-        player= new Character();
-        UIManager.Instance.MainMenu.SetMainMenuData(player.id, player.level, player.gold);
-        UIManager.Instance.Status.SetSatusData(player.baseAtk, player.baseDef, player.baseHealth, player.baseCrit);
+        List<Item> inventory = new List<Item>() 
+        { 
+            new Item(atk: 10),
+            new Item(def: -5, crit: 10)
+        };
+        player = new Character("Chad", 20000, 10, 35, 40, 100, 25, inventory);
+        UIManager.Instance.MainMenu.SetMainMenuData(player.Id, player.Level, player.Gold);
+        UIManager.Instance.Status.SetSatusData(player.BaseAtk, player.BaseDef, player.BaseHealth, player.BaseCrit);
+        UIManager.Instance.Inventory.SetInventoryData(inventory);
     }
 }
